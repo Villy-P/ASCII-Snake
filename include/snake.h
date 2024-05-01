@@ -5,9 +5,9 @@
 
 struct Snake {
     int length;
-    Segment segments[];
+    struct Segment **segments;
 };
 
-void generateSnake(Segment head);
+struct Snake* generateSnake(struct Segment *head);
 
 #endif

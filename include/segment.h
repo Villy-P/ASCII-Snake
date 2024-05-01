@@ -6,6 +6,6 @@ struct Segment {
     int y;
 };
 
-void generateSegment();
+struct Segment* generateSegment(int x, int y);
 
 #endif
