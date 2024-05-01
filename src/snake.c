@@ -40,6 +40,18 @@ void moveTo(struct Snake *snake) {
 
     int onApple = head->x == apple->x && head->y == apple->y;
 
+    if (onApple) {
+        while (1) {
+            free(apple);
+            int xPos = random(0, gridWidth);
+            int yPos = random(0, gridHeight);
+            if (!isSegmentAt(snake, xPos, yPos)) {
+                apple = generateSegment(xPos, yPos);
+                break;
+            }
+        }
+    }
+
     snake->length += onApple;
     snake->segments = (struct Segment**)realloc(snake->segments, snake->length * sizeof(struct Segment));
     if (snake->segments == NULL) {
