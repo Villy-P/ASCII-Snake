@@ -20,5 +20,6 @@ struct Snake* generateSnake(struct Segment *head);
 int isSegmentAt(struct Snake *snake, int x, int y);
 void move(struct Snake *snake);
 void handleKeypresses(struct Snake *snake);
+int isGameOver(struct Snake *snake);
 
 #endif

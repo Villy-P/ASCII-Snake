@@ -15,6 +15,10 @@ int main() {
         printf("%c[%dA!\n", 0x1B, gridHeight + 3);
         handleKeypresses(snake);
         move(snake);
+        if (isGameOver(snake)) {
+            game = 0;
+            printf("%c[%dB!GAME OVER\n", 0x1B, gridHeight + 3);
+        }
         Sleep(100);
     }
     return 0;

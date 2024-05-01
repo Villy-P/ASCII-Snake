@@ -1,5 +1,6 @@
 #include "snake.h"
 #include "util.h"
+#include "grid.h"
 
 #include <stdlib.h>
 
@@ -44,4 +45,14 @@ void handleKeypresses(struct Snake *snake) {
         snake->direction = DOWN;
     else if (wasKeyDown('D'))
         snake->direction = RIGHT;
+}
+
+int isGameOver(struct Snake *snake) {
+    struct Segment *head = snake->segments[0];
+    if (head->x < 0 || head->x > gridWidth || head->y < 0 || head->y > gridHeight)
+        return 1;
+    for (int i = 1; i < snake->length; i++)
+        if (head->x == snake->segments[i]->x || head->y == snake->segments[i]->y)
+            return 1;
+    return 0;
 }
