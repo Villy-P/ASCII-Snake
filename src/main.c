@@ -1,6 +1,8 @@
+#include "grid.h"
+
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World");
+    displayGrid();
     return 0;
 }
