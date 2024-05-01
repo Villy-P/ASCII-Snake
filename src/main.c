@@ -3,9 +3,11 @@
 #include "snake.h"
 
 #include <stdio.h>
+#include <time.h>
 #include <windows.h>
 
 int main() {
+    srand(time(0));
     int game = 1;
     struct Segment* head = generateSegment(gridWidth / 4, gridHeight / 2);
     struct Snake* snake = generateSnake(head);
