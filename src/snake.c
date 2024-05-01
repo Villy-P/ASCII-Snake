@@ -76,7 +76,7 @@ void handleKeypresses(struct Snake *snake) {
 
 int isGameOver(struct Snake *snake) {
     struct Segment *head = snake->segments[0];
-    if (head->x < 0 || head->x > gridWidth || head->y < 0 || head->y > gridHeight)
+    if (head->x < 0 || head->x >= gridWidth  || head->y < 0 || head->y >= gridHeight)
         return 1;
     return 0;
 }
