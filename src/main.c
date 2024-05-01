@@ -3,11 +3,16 @@
 #include "snake.h"
 
 #include <stdio.h>
+#include <windows.h>
 
 int main() {
     struct Segment* head = generateSegment(gridWidth / 4, gridHeight / 2);
     struct Snake* snake = generateSnake(head);
     apple = generateSegment(gridWidth / 2, gridHeight / 2);
-    displayGrid(snake);
+    while (1) {
+        displayGrid(snake);
+        printf("%c[%dAHELLO!\n", 0x1B, gridHeight + 3);
+        Sleep(1000);
+    }
     return 0;
 }
