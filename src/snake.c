@@ -19,3 +19,11 @@ int isSegmentAt(struct Snake *snake, int x, int y) {
     }
     return 0;
 }
+
+void move(struct Snake *snake) {
+    for (int i = 0; i < snake->length; i++) {
+        struct Segment *segment = snake->segments[i];
+        if (snake->direction == RIGHT)
+            segment->x++;
+    }
+}

@@ -12,6 +12,7 @@ int main() {
     while (1) {
         displayGrid(snake);
         printf("%c[%dAHELLO!\n", 0x1B, gridHeight + 3);
+        move(snake);
         Sleep(1000);
     }
     return 0;
