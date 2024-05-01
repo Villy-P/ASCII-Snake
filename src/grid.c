@@ -14,7 +14,9 @@ void displayGrid(struct Snake *snake) {
     for (int i = 0; i < gridHeight; i++) {
         printf("|");
         for (int j = 0; j < gridWidth; j++) {
-            if (isSegmentAt(snake, i, j))
+            if (isSegmentAt(snake, j, i))
+                printf(" #");
+            else if (apple->x == j && apple->y == i)
                 printf(" @");
             else
                 printf("  ");

@@ -6,6 +6,8 @@ struct Segment {
     int y;
 };
 
+extern struct Segment *apple;
+
 struct Segment* generateSegment(int x, int y);
 
 #endif
