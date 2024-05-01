@@ -9,3 +9,12 @@ struct Snake* generateSnake(struct Segment *head) {
     snake->segments[0] = head;
     return snake;
 }
+
+int isSegmentAt(struct Snake *snake, int x, int y) {
+    for (int i = 0; i < snake->length; i++) {
+        struct Segment *segment = snake->segments[i];
+        if (segment->x == x && segment->y == y)
+            return 1;
+    }
+    return 0;
+}

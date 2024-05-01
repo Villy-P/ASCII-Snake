@@ -9,5 +9,6 @@ struct Snake {
 };
 
 struct Snake* generateSnake(struct Segment *head);
+int isSegmentAt(struct Snake *snake, int x, int y);
 
 #endif
