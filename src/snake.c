@@ -7,6 +7,7 @@ struct Snake* generateSnake(struct Segment *head) {
     snake->length = 1;
     snake->segments = malloc(sizeof(struct Segment) * snake->length);
     snake->segments[0] = head;
+    snake->direction = RIGHT;
     return snake;
 }
 

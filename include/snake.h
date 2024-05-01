@@ -3,9 +3,17 @@
 
 #include "segment.h"
 
+enum Direction {
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT
+};
+
 struct Snake {
     int length;
     struct Segment **segments;
+    enum Direction direction;
 };
 
 struct Snake* generateSnake(struct Segment *head);
