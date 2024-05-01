@@ -25,5 +25,11 @@ void move(struct Snake *snake) {
         struct Segment *segment = snake->segments[i];
         if (snake->direction == RIGHT)
             segment->x++;
+        if (snake->direction == LEFT)
+            segment->x--;
+        if (snake->direction == UP)
+            segment->y--;
+        if (snake->direction == DOWN)
+            segment->y++;
     }
 }

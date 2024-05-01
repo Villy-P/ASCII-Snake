@@ -5,6 +5,12 @@
 #include <stdio.h>
 #include <windows.h>
 
+int WasKeyDown(int key) {
+    if (0x00000001 & GetAsyncKeyState(key))
+        return 1;
+    return 0;
+} 
+
 int main() {
     struct Segment* head = generateSegment(gridWidth / 4, gridHeight / 2);
     struct Snake* snake = generateSnake(head);
