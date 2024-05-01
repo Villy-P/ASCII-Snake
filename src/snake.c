@@ -1,4 +1,5 @@
 #include "snake.h"
+#include "util.h"
 
 #include <stdlib.h>
 
@@ -32,4 +33,15 @@ void move(struct Snake *snake) {
         if (snake->direction == DOWN)
             segment->y++;
     }
+}
+
+void handleKeypresses(struct Snake *snake) {
+    if (wasKeyDown('W'))
+        snake->direction = UP;
+    else if (wasKeyDown('A'))
+        snake->direction = LEFT;
+    else if (wasKeyDown('S'))
+        snake->direction = DOWN;
+    else if (wasKeyDown('D'))
+        snake->direction = RIGHT;
 }
