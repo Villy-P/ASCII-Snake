@@ -38,12 +38,14 @@ void moveTo(struct Snake *snake) {
     struct Segment *head = snake->segments[0];
     struct Segment *move = generateSegment(head->x + x, head->y + y);
 
-    snake->segments = (struct Segment**)realloc(*snake->segments, snake->length * sizeof(struct Segment));
+    int onApple = head->x == apple->x && head->y == apple->y;
+
+    snake->length += onApple;
+    snake->segments = (struct Segment**)realloc(snake->segments, snake->length * sizeof(struct Segment));
     if (snake->segments == NULL) {
         printf("Memory allocation failed.\n");
         exit(1);
     }
-
     for (int i = snake->length - 1; i > 0; i--)
         snake->segments[i] = snake->segments[i - 1];
     snake->segments[0] = move;
@@ -64,8 +66,5 @@ int isGameOver(struct Snake *snake) {
     struct Segment *head = snake->segments[0];
     if (head->x < 0 || head->x > gridWidth || head->y < 0 || head->y > gridHeight)
         return 1;
-    for (int i = 1; i < snake->length; i++)
-        if (head->x == snake->segments[i]->x || head->y == snake->segments[i]->y)
-            return 1;
     return 0;
 }
