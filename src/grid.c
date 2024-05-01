@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 
-int gridWidth = 15;
-int gridHeight = 15;
+int gridWidth = 10;
+int gridHeight = 10;
 
 void displayGrid(struct Snake *snake) {
     printf("+");
