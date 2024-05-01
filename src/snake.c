@@ -42,10 +42,10 @@ void moveTo(struct Snake *snake) {
 
     if (onApple) {
         while (1) {
-            free(apple);
-            int xPos = random(0, gridWidth);
-            int yPos = random(0, gridHeight);
+            int xPos = random(0, gridWidth - 1);
+            int yPos = random(0, gridHeight - 1);
             if (!isSegmentAt(snake, xPos, yPos)) {
+                free(apple);
                 apple = generateSegment(xPos, yPos);
                 break;
             }
@@ -65,13 +65,21 @@ void moveTo(struct Snake *snake) {
 
 void handleKeypresses(struct Snake *snake) {
     if (wasKeyDown('W'))
-        snake->direction = UP;
+        moveInDirection(snake, UP);
     else if (wasKeyDown('A'))
-        snake->direction = LEFT;
+        moveInDirection(snake, LEFT);
     else if (wasKeyDown('S'))
-        snake->direction = DOWN;
+        moveInDirection(snake, DOWN);
     else if (wasKeyDown('D'))
-        snake->direction = RIGHT;
+        moveInDirection(snake, RIGHT);
+}
+
+int moveInDirection(struct Snake *snake, enum Direction direction) {
+    if (abs(snake->direction - direction) % 2 != 0) {
+        snake->direction = direction;
+        return 1;
+    }
+    return 0;
 }
 
 int isGameOver(struct Snake *snake) {
