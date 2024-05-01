@@ -13,8 +13,8 @@ int main() {
     while (game) {
         displayGrid(snake);
         printf("%c[%dA!\n", 0x1B, gridHeight + 3);
-        move(snake);
         handleKeypresses(snake);
+        move(snake);
         Sleep(100);
     }
     return 0;
