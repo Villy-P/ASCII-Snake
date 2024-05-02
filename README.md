@@ -11,3 +11,16 @@ A simple while loop with a `sleep` statment at the end of the logic moves the sc
 while ANSII escape codes handle "refreshing" the screen.
 
 The program uses the Windows function `GetAsyncKeyState` to get keypresses that occured while the program was still refreshing.
+
+## Running the program
+
+Make sure you have `ninja`, `cmake`, and a `C compiler`.
+
+Then run these commands:
+
+``` txt
+make reset
+make run
+```
+
+ASCII-Snake uses classic `WASD` controls.
