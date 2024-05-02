@@ -86,5 +86,10 @@ int isGameOver(struct Snake *snake) {
     struct Segment *head = snake->segments[0];
     if (head->x < 0 || head->x >= gridWidth  || head->y < 0 || head->y >= gridHeight)
         return 1;
+    for (int i = 1; i < snake->length; i++) {
+        struct Segment *seg = snake->segments[i];
+        if (seg->x == head->x && seg->y == head->y)
+            return 1;
+    }
     return 0;
 }
