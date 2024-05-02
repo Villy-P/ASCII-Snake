@@ -1,7 +1,9 @@
-# C-Snake
+# ASCII-Snake
 
 An ASCII implementation of Snake within C. All within your very own console!
 This project uses `<windows.h>`, so it is only compatible with Windows OS.
+
+![Image](./assets/animation.gif)
 
 ## How it works
 
