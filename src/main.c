@@ -27,5 +27,7 @@ int main() {
         }
         Sleep(100);
     }
+    free(head);
+    free(snake);
     return 0;
 }
